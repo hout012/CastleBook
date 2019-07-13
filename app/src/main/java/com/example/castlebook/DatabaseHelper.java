@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String dbname = "BookCastle.db";
+    private static final String dbname = "BookCastle.db";
     //
     String tb1 = "Books";
     //
@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+tb1+" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT) " );
+        //test
     }
 
     @Override
