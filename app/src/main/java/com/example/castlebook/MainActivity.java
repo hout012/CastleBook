@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        DatabaseHelper test = new DatabaseHelper(this);
+        //test.addData("");
     }
 
     @Override
