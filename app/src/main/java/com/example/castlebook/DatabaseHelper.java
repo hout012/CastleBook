@@ -13,6 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, dbname, null, 1);
+
     }
 
     @Override
@@ -42,9 +43,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getData(){
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM "+tb1,null);
+        return res;
+    }
 
-        return null;
+    public Cursor getData(String genre){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM "+tb1+" WHERE GENRE = ?",new String[]{genre});
+        return res;
+    }
+
+    public void clearData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE "+tb1);
     }
 
 }
